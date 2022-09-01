@@ -1,0 +1,29 @@
+package com.example.assign1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity2 extends AppCompatActivity {
+    TextView t1,t2,t3,t4;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        t1=findViewById(R.id.name1);
+        t2=findViewById(R.id.roll1);
+        t3=findViewById(R.id.branch);
+        t4=findViewById(R.id.year);
+        String n=getIntent().getStringExtra("name");
+        String r=getIntent().getStringExtra("roll");
+        String b=getIntent().getStringExtra("radiogrp");
+        String y=getIntent().getStringExtra("checkb");
+        t1.setText(n);
+        t2.setText(r);
+        t3.setText(b);
+        t4.setText(y);
+    }
+}
