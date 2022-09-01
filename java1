@@ -1,0 +1,85 @@
+package com.example.assign1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    TextView t1,t2,t3,t4;
+    EditText e1,e2;
+    Button submit;
+    RadioGroup rg1;
+    RadioButton r1,r2,r3;
+    CheckBox c1,c2,c3,c4;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        t1=findViewById(R.id.n1);
+        t2=findViewById(R.id.n2);
+        t3=findViewById(R.id.n3);
+        t4=findViewById(R.id.n4);
+        e1=findViewById(R.id.eee);
+        e2=findViewById(R.id.eee1);
+        rg1=findViewById(R.id.rg);
+        r1=findViewById(R.id.rb1);
+        r2=findViewById(R.id.rb2);
+        r3=findViewById(R.id.rb3);
+        submit=findViewById(R.id.btn);
+        c1=findViewById(R.id.cb1);
+        c2=findViewById(R.id.cb2);
+        c3=findViewById(R.id.cb3);
+        c4=findViewById(R.id.cb4);
+        String s1,s2;
+        s1=e1.getText().toString();
+        s2=e2.getText().toString();
+        int checked=rg1.getCheckedRadioButtonId();
+        String s=null;
+        switch(checked){
+            case R.id.rb1:
+                s=r1.getText().toString();
+                break;
+            case R.id.rb2:
+                s=r2.getText().toString();
+                break;
+            case R.id.rb3:
+                s=r3.getText().toString();
+                break;
+        }
+        String s0="";
+        if (c1.isChecked()){
+            s0=s0+c1.getText().toString();
+        }
+        if (c2.isChecked()){
+            s0=s0+c2.getText().toString();
+        }
+        if (c3.isChecked()){
+            s0=s0+c3.getText().toString();
+        }
+        if (c4.isChecked()){
+            s0=s0+c4.getText().toString();
+        }
+        Intent intent=new Intent(getApplicationContext(),MainActivity2.class);
+        intent.putExtra("name",s1);
+        intent.putExtra("roll",s2);
+        intent.putExtra("radiogrp",s);
+        intent.putExtra("checkb",s0);
+        startActivity(intent);
+    }
+};
+
+
+
+
+
+
